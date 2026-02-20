@@ -1,0 +1,70 @@
+# Credenciais e secrets - NUNCA commitar
+google-credentials.json
+*.json
+!package.json
+!tsconfig.json
+!pubspec.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Flutter (já tem no flutter_app, mas por segurança)
+flutter_app/build/
+flutter_app/.dart_tool/
+flutter_app/.flutter-plugins
+flutter_app/.flutter-plugins-dependencies
+flutter_app/.packages
+flutter_app/pubspec.lock
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Arquivos do Windows
+$RECYCLE.BIN/
+*.lnk
+
+# Arquivos grandes/desnecessários
+*.xlsx
+*.pdf
+!E-book Planilha do Breno-1.pdf
