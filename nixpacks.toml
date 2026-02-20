@@ -1,8 +1,11 @@
 [phases.setup]
-nixPkgs = ["python312"]
+nixPkgs = ["python312", "python312Packages.pip"]
 
 [phases.install]
-cmds = ["pip install --upgrade pip", "pip install -r requirements_api.txt"]
+cmds = [
+  "python3 -m pip install --upgrade pip",
+  "python3 -m pip install -r requirements.txt"
+]
 
 [phases.build]
 cmds = ["echo Build complete"]
