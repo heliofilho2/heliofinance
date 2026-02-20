@@ -8,6 +8,24 @@ from typing import List, Optional, Dict, Any
 import os
 from pathlib import Path
 import sys
+import json
+
+# Criar arquivo de credenciais a partir de variável de ambiente (Railway)
+creds_json = os.getenv('GOOGLE_CREDENTIALS')
+if creds_json:
+    # Railway: criar arquivo temporário
+    creds_path = '/tmp/google-credentials.json'
+    os.makedirs('/tmp', exist_ok=True)
+    with open(creds_path, 'w') as f:
+        f.write(creds_json)
+    os.environ['GOOGLE_CREDENTIALS_PATH'] = creds_path
+    print(f"✅ Credenciais criadas a partir de variável de ambiente: {creds_path}")
+elif not os.getenv('GOOGLE_CREDENTIALS_PATH'):
+    # Desenvolvimento local: usar arquivo padrão
+    default_path = Path(__file__).parent.parent / 'google-credentials.json'
+    if default_path.exists():
+        os.environ['GOOGLE_CREDENTIALS_PATH'] = str(default_path)
+        print(f"✅ Usando credenciais locais: {default_path}")
 
 # Adicionar diretório raiz ao path
 sys.path.insert(0, str(Path(__file__).parent.parent))
